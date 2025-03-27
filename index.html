@@ -14,7 +14,7 @@
       <title>Anniversary Pacaran 1 Bulan</title>
       <style>
          body { 
-            background-image: url("https://i.postimg.cc/pLd7XMrW/wallpaper.jpg"); 
+            background-image: url("https://th.bing.com/th/id/OIP.Qn5JBKK-xYUkfLxDjxnzQgHaEK?rs=1&pid=ImgDetMain"); 
             background-repeat: no-repeat; 
             background-size: cover; 
             text-align: center;
@@ -29,28 +29,22 @@
             opacity: 0;
             transition: opacity 2s ease-in-out;
          }
-         /* Container untuk foto di pojok kanan atas dengan teks */
          #pojokContainer {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-         }
-         #pojokContainer img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid white;
-            object-fit: cover;
-         }
-         #pojokContainer p {
-            font-size: 16px;
-            color: white;
-            font-family: 'Shippori Antique', sans-serif;
-            margin: 0;
-         }
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   text-align: right; /* Pastikan teksnya tetap rapi */
+}
+
+#pojokContainer p {
+   font-size: 16px;
+   color: white;
+   font-family: 'Shippori Antique', sans-serif;
+   margin: 0;
+}
       </style>
    </head>
    <body>
@@ -74,11 +68,12 @@
          <div id="tombWA"><a class="button" onClick="bukaWa();">Kirim Pesan</a></div>
       </div>
 
-      <!-- Container pojok kanan atas: Foto & Teks -->
-      <div id="pojokContainer">
-         <img src="https://pleated-jeans.com/wp-content/uploads/2016/09/sleeping-cats13-1.jpg" alt="Foto Pacar"/>
-         <p>kondisi aku setelah bikin ini buat kamu👻</p>
-      </div>
+      <!-- Container pojok kanan atas: Teks di kiri, Foto di kanan -->
+<div id="pojokContainer">
+   <p>kondisi aku setelah bikin ini buat kamu👻</p>
+   <img src="https://pleated-jeans.com/wp-content/uploads/2016/09/sleeping-cats13-1.jpg" alt="Foto Pacar"/>
+</div>
+
 
       <script>
          function play() {
