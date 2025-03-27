@@ -1,145 +1,73 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8"/>
-      <meta content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5" name="viewport"/>
-      <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
-      <script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
-      <link href="https://kuisberhadiah.likeadream.repl.co/style.css" rel="stylesheet" type="text/css" />
-      <title>Anniversary Pacaran 1 Bulan</title>
-      
-      <style>
-         body { 
-            background-image: url("https://img.freepik.com/premium-vector/abstract-white-bg-02-edit_7505-1800.jpg"); 
-            background-repeat: no-repeat; 
-            background-size: cover; 
-         }
-         #loveText {
-            display: none;
-            text-align: center;
-            font-size: 24px;
-            color: #FF4081;
-            margin-top: 20px;
-            font-family: 'Shippori Antique', sans-serif;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-         }
-         /* Style untuk foto pojok kanan atas */
-         #pojokKananAtas {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid white;
-            object-fit: cover;
-         }
-      </style>
-   </head>
-   <body>
-      <div id="bodyblur"></div>
-      <div id="konten">
-         <div id="fotoloveu">
-            <div class="image">
-               <img src="https://th.bing.com/th/id/OIP.hbpp8x_7J2LleH4QLNWzjgHaHa?rs=1&pid=ImgDetMain" id="animasi" width="130px" height="130px"/>
-            </div>
-         </div>
-         <p class='catatan' id='koteks'>
-            <marquee scrollamount="8" id="marq">
-               <i id="spasi"></i>
-               Yeay makasi ya 😁<i id="spasi"></i>
-               Kapan nih ditraktirinnya? &#128511;<i id="spasi"></i>
-               Candaa candaa ☺️<i id="spasi"></i>
-               Selamat 1 Bulan, sayang! &#129395;&#129395;&#129395;
-            </marquee>
-         </p>
-         <div id="loveText">I love you more babe</div>
-         <div id="tombWA"><a class="button" onClick="bukaWa();">Kirim Pesan</a></div>
+<head>
+   <meta charset="UTF-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Anniversary Pacaran 1 Bulan</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+   <style>
+      body { background-image: url("https://i.postimg.cc/pLd7XMrW/wallpaper.jpg"); background-repeat: no-repeat; background-size: cover; text-align: center; }
+      #konten { margin-top: 50px; }
+      .image { position: relative; display: inline-block; }
+      #animasi { width: 130px; height: 130px; transition: transform 0.5s; }
+      #textSamping {
+         font-size: 18px; 
+         color: white; 
+         margin-left: 20px;
+         display: inline-block;
+         vertical-align: top;
+      }
+      #loveText {
+         display: none;
+         font-size: 24px;
+         color: #FF4081;
+         margin-top: 20px;
+         font-family: Arial, sans-serif;
+      }
+   </style>
+</head>
+<body>
+   <div id="konten">
+      <div class="image">
+         <img src="https://i.postimg.cc/Rhzfr0FG/hbd.gif" id="animasi"/>
       </div>
+      <div id="textSamping">💖 Kondisi aku setelah bikin ini untuk kamu 😭</div>
+      <p id="loveText">I love you more babe 💕</p>
+      <button onclick="pilihwarna()">Pilih Warna 🌈</button>
+   </div>
 
-      <!-- Foto di KANAN + Teks -->
-<div id="fotoKananContainer" style="display: flex; align-items: center; gap: 10px; position: absolute; top: 10px; right: 10px;">
-   <img src="https://i.postimg.cc/Rhzfr0FG/hbd.gif" id="fotoKanan" width="130px" height="130px"/>
-   <p id="teksKondisi" style="font-size: 16px; color: white; font-family: 'Shippori Antique', sans-serif;">Kondisi aku setelah bikin ini untuk kamu</p>
-</div>
-     
-      <script>
-         function play() {
-            var audio = new Audio('https://kuisberhadiah.likeadream.repl.co/musiktiktok.m4a');
-            audio.play();
-            audio.loop = true;
+   <script>
+      async function pilihwarna(){
+         var { isConfirmed: warna } = await Swal.fire({
+            title: 'Pilih warna bunga!',
+            text: 'Mau tema Biru atau Merah?',
+            showCancelButton: true,
+            confirmButtonText: '🌊 Biru',
+            cancelButtonText: '🌹 Merah',
+         });
+
+         if (warna) {
+            await Swal.fire('Yeayy!', 'Kamu pilih Biru! Tapi inget ya, traktir harus lebih banyak! 😂');
+            document.body.style.backgroundColor = "#004aad"; // Latar biru
+            document.getElementById('animasi').src = "https://i.postimg.cc/L8kxRBZh/blue-flower.gif"; // FIX Bunga Biru
+         } else {
+            await Swal.fire('Yeayy!', 'Kamu pilih Merah! Tapi inget ya, traktiran tetep jalan! 🤣');
+            document.body.style.backgroundColor = "#aa0000"; // Latar merah
+            document.getElementById('animasi').src = "https://i.postimg.cc/90JgM6bb/red-flower.gif"; // FIX Bunga Merah
          }
 
-         function bukaWa(){
-            window.location = "https://api.whatsapp.com/send?phone=&text=" + window.nama + " udah liat semuanya. Enak aja, traktir ya! %0A%0A" + "Btw, makasih udah ngucapin ><";
-         }
+         document.getElementById('animasi').style.transform = "scale(1.2)"; // Animasi zoom dikit
+         document.getElementById('loveText').style.display = "block";
 
-         async function mulai(){
-            var { value: nama } = await Swal.fire({
-               title: 'Nama kamu?',
-               input: 'text',
-               confirmButtonText: 'Lanjut',
-               showCancelButton: false,
-            });
-            if(nama && nama.length < 11){
-               play();
-               window.nama = nama;
-               await Swal.fire('Hai, ' + nama + ' manis ツ');                    
-               await Swal.fire('Cie yang 1 bulan nih, selamat ya! &#128514;');
-               await Swal.fire('Selamat anniversary 1 bulan, sayang!');
-               await Swal.fire('Panjang umur & sehat selalu <3');
-               expl();
-            } else {
-               await Swal.fire('Ups!', 'Nama tidak boleh kosong atau lebih dari 10 karakter, ya!');
-               mulai();
-            }
-         }
-         mulai();
-
-         function expl(){
-            document.getElementById('bodyblur').style.opacity = "1";
-            setTimeout(duar, 200);
-         }
-
-         function duar(){
-            var e1 = document.getElementById('animasi');
-            e1.classList.add("degdeg");
-            document.getElementById('konten').style.top = "0";
-            document.getElementById('fotoloveu').style.opacity = "1";
-            document.getElementById('koteks').style.opacity = "1";
-            document.getElementById('loveText').style.display = "block";
-            setTimeout(() => {
-               document.getElementById('loveText').style.opacity = "1";
-            }, 1000);
-            setTimeout(tombol, 4000);
-            setInterval(createHeart, 200);
-         }
-
-         function tombol(){
-            document.getElementById('tombWA').style.visibility = "visible";
-            document.getElementById('tombWA').style.opacity = "1";
-         }
-
-         function createHeart(){
-            const heart = document.createElement("div");
-            heart.className = "fas fa-heart";
-            heart.style.left = (Math.random()*90)+"vw";
-            heart.style.animationDuration = (Math.random()*3)+2+"s";
-            document.body.appendChild(heart);
-         }
-
-         setInterval(function(){
-            var heartArr = document.querySelectorAll(".fa-heart");
-            if(heartArr.length > 100){
-               heartArr[0].remove();
-            }
-         }, 100);
-      </script>
-   </body>
+         await Swal.fire({
+            title: 'Janji gak lupa traktiran?',
+            text: 'Biru atau merah, traktiran tetep harus ada 😜',
+            confirmButtonText: 'Oke, traktir!',
+            icon: 'success'
+         });
+      }
+   </script>
+</body>
 </html>
